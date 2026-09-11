@@ -51,22 +51,38 @@ This document is the authoritative single source of truth for **{{PROJECT_NAME}}
 
 When a user requests a new feature, bugfix, or architectural refactoring:
 1. **NEVER modify source code directly** as a first step.
-2. **Scan Existing Documentation**: Read `docs/PRD.md`, `docs/RFC.md`, `docs/FDD.md`, `docs/TRACKER.md`, and `docs/project-plan.md`.
-3. **Update / Create Documentation**:
-   - Use the `/design-docs-*` workflow skills to update `PRD.md`, `RFC.md`, and `FDD.md`.
-   - Update `docs/project-plan.md` and add/update phase plans in `docs/phases/phase-NN-*/phase-NN-*.md`.
-   - Ensure all step implementations (SIs) and requirements include **explicit line-anchored file links** (`file.ext#Lnn-Lmm`).
-4. **Obtain Alignment**: Confirm plan/documentation updates before starting code implementation.
+2. **Scan Existing System Documentation**: Read `docs/PRD.md`, `docs/RFC.md`, `docs/FDD.md`, `docs/TRACKER.md`, and `docs/project-plan.md`.
+3. **System Design & Roadmap Phase**: Update system design docs (`PRD.md`, `RFC.md`, `FDD.md`, `adrs/`) and master roadmap (`docs/project-plan.md`) BEFORE running technical slicing pipelines.
+4. **Execute Unified New Feature Workflow**: Follow the 9-step **New Feature & Phase Slicing Workflow** detailed in Section 4 below.
+5. **Obtain Alignment**: Confirm system documentation and phase plan updates before starting code implementation.
 
 ---
 
-## 📋 4. Feature Planning & Slicing Workflow
+## 📋 4. Feature Planning & New Phase Workflow
 
-1. **Architectural Specification (`/plan-build`)**:
-   - For complex features, generate technical specifications using templates (`api-contracts`, `data-model`, `error-catalog`, `frontend-runtime`, `traceability-matrix`, `ui-contracts`).
-2. **Phase Plan Slicing (`/plan-pipeline`)**:
-   - Break feature scope into atomic, verifiable Step Implementations (SIs).
-   - Document dependency maps, prerequisites, and explicit line anchors in `docs/phases/`.
+When a user requests a new feature or a new implementation phase (e.g. Phase 07), execute the following end-to-end 9-step workflow:
+
+1. **Update System Design Docs (`design-docs`)**:
+   - Update `docs/PRD.md` (`/design-docs-prd`), `docs/RFC.md` (`/design-docs-rfc`), `docs/FDD.md` (`/design-docs-fdd`), and `docs/adrs/` (`/design-docs-adr`) to capture system-level requirements and C4/Mermaid architecture diagrams.
+2. **Amend Master Greenfield Roadmap (`docs/project-plan.md`)**:
+   - Add a `### Phase NN: <name>` section to `docs/project-plan.md` detailing capability bullets, target file links (`file.ext#Lnn-Lmm`), and subprojects. This is the authoritative source of truth for phase capability discovery.
+3. **Discover Technical Decisions (`/research phase NN`)**:
+   - Run `/research phase NN` to generate `docs/decisions/technical-decisions-{slug}.md`, capturing every Technical Decision (TD) traceable to the new capability bullets.
+4. **Consolidate Phase Context (`/plan-context NN`)**:
+   - Run `/plan-context NN` (or slug) to consolidate `project-plan.md` + technical decisions + prior phase conventions into `docs/phases/phase-NN-{slug}/CONTEXT.md`.
+5. **Validate Architectural Consistency (`/plan-validate NN`)**:
+   - Run `/plan-validate NN` to verify consistency and produce `docs/phases/phase-NN-{slug}/validation.md` with status `clean` or `dirty`.
+6. **Resolve Open Issues (`/plan-resolve NN`)**:
+   - If validation is `dirty`, run `/plan-resolve NN` to answer open questions and update decisions docs until status is `clean`. Re-run `/plan-validate NN`.
+7. **Emit Implementation Plan & Specs (`/plan-build NN` & `/plan-test-specs NN`)**:
+   - Run `/plan-build NN` to emit `docs/phases/phase-NN-{slug}/phase-NN-{slug}.md` containing atomic Step Implementations (SIs), Dependency Map, and Deliverables.
+   - Run `/plan-test-specs NN` (optional) if SIs include UI/controller test scenario placeholders.
+8. **Execute Sequential Code Implementation (`/implement phase NN`)**:
+   - Run `/implement phase NN` (or `/implement-phase`) to execute SIs sequentially with strict separation of concerns (UI components decoupled from pure service logic).
+9. **Verify Quality Gate & Update Traceability Matrix (`vitest` + `TRACKER.md` + `design-docs-validate`)**:
+   - Execute the unit test runner (`{{TEST_COMMAND}}`) to ensure 100% test pass rate.
+   - Run `/design-docs-tracker` to update `docs/TRACKER.md` with line-anchored file links (`file.ext#Lnn-Lmm`) mapping requirements to code lines.
+   - Run `/design-docs-validate` to confirm complete document consistency and link integrity.
 
 ---
 

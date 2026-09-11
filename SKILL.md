@@ -43,19 +43,22 @@ You are an expert AI software architect specializing in transforming any codebas
 
 ---
 
-### Pillar 2: Greenfield Planning, Implementation & Refactoring Pipeline
+### Pillar 2: Greenfield Planning, Implementation & Unified New Feature Pipeline
 1. **Scaffold Greenfield Project Plan & Line-Anchored Phase Roadmap**:
    - **`docs/project-plan.md`**: Master Greenfield project plan detailing executive summary, repository structure/subprojects, and Phased Implementation Roadmap with explicit file links (`file.ext#Lnn-Lmm`).
    - **`docs/phases/`**: Scaffold sequential phase plan documents (`docs/phases/phase-01-*/phase-01-*.md` to `docs/phases/phase-NN-*/phase-NN-*.md`) detailing `## Objective`, `## Dependency Map`, `## Step Implementations (SIs)` with **exact target file links (`file.ext#Lnn-Lmm`)**, and `## Deliverables`.
 
-2. **Scaffold Greenfield Planning & Execution Engine**:
-   *Scaffolds the 23 development workflow skills from `mba-ia-greenfield-project` into `.agents/skills/` and `.claude/skills/`:*
-   - **`plan-pipeline`**: Slicing implementation plan orchestrator.
-   - **`plan-build`**: Architectural tech spec & SI plan builder (with templates for `api-contracts`, `auth-matrix`, `data-model`, `error-catalog`, `events-messages`, `frontend-runtime`, `traceability-matrix`, `ui-contracts`).
-   - **`plan-phase`**, **`plan-context`**, **`plan-resolve`**, **`plan-rule-author`**, **`plan-test-specs`**, **`plan-validate`**, **`screen-inventory`**, **`decide`**, **`research`**.
-   - **`implement` & `implement-phase`**: Step-by-step SI execution engine for turning technical specifications into tested working code without pausing model invocation.
-   - **Framework Best Practices**: `nestjs-best-practices`, `next-best-practices`, `vercel-react-best-practices`, `typeorm`, `playwright-cli`.
-   - **Testing Guides**: `generate-test-guide`, `testing-guide-nestjs-project`, `testing-guide-next-frontend`.
+2. **Unified New Feature / Phase Slicing Execution Engine**:
+   *Enforces the 9-step mandatory workflow whenever a new feature or implementation phase is requested:*
+   1. **System Design Docs Update**: Update `docs/PRD.md` (`/design-docs-prd`), `docs/RFC.md` (`/design-docs-rfc`), `docs/FDD.md` (`/design-docs-fdd`), and `docs/adrs/` (`/design-docs-adr`).
+   2. **Master Roadmap Amendment**: Amend `docs/project-plan.md` to add `### Phase NN: <name>` with capability bullets and target file links (`file.ext#Lnn-Lmm`).
+   3. **Technical Decision Discovery**: Run `/research phase NN` $\rightarrow$ `docs/decisions/technical-decisions-{slug}.md`.
+   4. **Phase Context Consolidation**: Run `/plan-context NN` $\rightarrow$ `docs/phases/phase-NN-{slug}/CONTEXT.md`.
+   5. **Architectural Validation**: Run `/plan-validate NN` $\rightarrow$ `validation.md` (clean|dirty).
+   6. **Conflict Resolution**: Run `/plan-resolve NN` to resolve open issues interactively until clean.
+   7. **SI Build & Test Specs**: Run `/plan-build NN` $\rightarrow$ `phase-NN-{slug}.md` and optional `/plan-test-specs NN`.
+   8. **Sequential Implementation**: Run `/implement phase NN` (or `/implement-phase`) to execute SIs with UI/service separation.
+   9. **Quality Gate & Traceability**: Run test suite (`vitest run`), update `docs/TRACKER.md` (`/design-docs-tracker`), and validate with `/design-docs-validate`.
 
 3. **Scaffold Architectural Refactoring Suite (`refactor-arch`)**:
    - Master refactoring orchestrator executing Phase 1 (Project Analysis), Phase 2 (Architecture Audit & Severity Report), Phase 3 (MVC Refactoring & Boot Validation).
