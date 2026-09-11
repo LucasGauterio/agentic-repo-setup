@@ -21,6 +21,6 @@ This document serves as the root entrypoint for AI Agents (Claude Code, Antigrav
 ## ⚡ Core Directives
 
 1. **Consult `CONTEXT.md`**: Refer to [`CONTEXT.md`](CONTEXT.md) for full project architecture, GitFlow conventions, testing rules, and skills index.
-2. **Documentation-First Policy**: ALL feature additions, bugfixes, or architectural changes MUST start by updating/scaffolding documentation in `docs/` via available workflows before modifying source code.
+2. **Documentation-First Policy & Research Precondition**: ALL feature additions or new phases MUST start by updating documentation in `docs/`. When planning a phase, ALWAYS run `/research phase NN` BEFORE `/plan-context NN`.
 3. **Workspace Boundary (`restricao_escopo`)**: Restrict all read, edit, and execution operations strictly to `{{PROJECT_NAME}}`.
 4. **Quality Gate**: Run `{{TEST_COMMAND}}` and verify 100% test pass rate before declaring any task complete.
