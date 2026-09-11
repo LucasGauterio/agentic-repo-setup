@@ -1,21 +1,12 @@
-# Master Agent Guide — {{PROJECT_NAME}} (AGENTS.md / CLAUDE.md / context.md)
+# {{PROJECT_NAME}} Context & Master Workflow Guide (`context.md`)
 
-This document provides instructions for AI Agents (Claude Code, Antigravity, Cursor, Codex, Windsurf) working in the **{{PROJECT_NAME}}** repository.
-
----
-
-## 🚀 Quick Reference & Commands
-
-- **Dev Server**: `{{DEV_COMMAND}}` (run ONLY when explicitly requested by user)
-- **Build**: `{{BUILD_COMMAND}}`
-- **Tests**: `{{TEST_COMMAND}}`
-- **Single Test**: `{{SINGLE_TEST_COMMAND}}`
-- **Lint / Format**: `{{LINT_COMMAND}}`
+This document is the authoritative single source of truth for **{{PROJECT_NAME}}**. It defines project architecture, environment setup, Git conventions, documentation-first development rules, planning pipelines, execution guidelines, testing procedures, and available skills.
 
 ---
 
-## 🛠 Project Architecture & Tech Stack
+## 🏛 1. Project Overview & Architecture
 
+- **Project Domain**: {{PROJECT_DESCRIPTION}}
 - **Framework / Runtime**: {{TECH_STACK}}
 - **Build Tool**: {{BUILD_TOOL}}
 - **Testing Framework**: {{TEST_FRAMEWORK}}
@@ -23,44 +14,113 @@ This document provides instructions for AI Agents (Claude Code, Antigravity, Cur
 - **State & Storage**: {{STORAGE_STACK}}
 - **Database / Backend**: {{BACKEND_STACK}}
 
----
-
-## 📂 Key Directory Structure
-
+### Directory Tree
 ```
 {{PROJECT_NAME}}/
 ├── {{SRC_DIR}}/          # Application source code
-├── docs/                 # Greenfield phase plans, PRD, RFC, FDD, ADRs, TRACKER
-│   ├── project-plan.md   # Master Greenfield roadmap
-│   ├── architecture.md   # System architecture breakdown
-│   ├── phases/           # Phased implementation plans (phase-01 to phase-NN)
-│   └── adrs/             # Architecture Decision Records
-├── AGENTS.md             # Universal master guide (Antigravity/Cursor/Codex/Windsurf) — IDENTICAL TO CLAUDE.md & context.md
-├── CLAUDE.md             # Native Claude Code CLI guide — IDENTICAL TO AGENTS.md & context.md
-├── context.md            # Legacy / context guide — IDENTICAL TO AGENTS.md & CLAUDE.md
+├── docs/                 # System documentation & Greenfield roadmap
+│   ├── project-plan.md   # Master Greenfield roadmap & phase list
+│   ├── PRD.md            # Product Requirements Document
+│   ├── RFC.md            # Technical Architecture & Trade-offs
+│   ├── FDD.md            # Functional Design Document + Embedded Diagrams
+│   ├── TRACKER.md        # Line-level Traceability Matrix (file.ext#Lnn-Lmm)
+│   ├── phases/           # Phased implementation plan documents
+│   └── adrs/             # Architecture Decision Records (ADR-001..NNN)
+├── AGENTS.md             # Universal agent entrypoint (points to context.md)
+├── CLAUDE.md             # Claude Code CLI entrypoint (points to context.md)
+├── context.md            # Authoritative Single Source of Truth
 ├── .agents/              # AI agent rules & workflow skills (agent-invocation ready)
 └── .claude/              # Native Claude Code CLI skills, commands, rules, agents, and references
 ```
 
 ---
 
-## ⚠️ Mandatory Agent Guidelines
+## 🛠 2. Environment Setup & Execution Commands
 
-1. **Workspace Scope Restrictions (`restricao_escopo`)**:
-   - Limit all read, write, edit, and search operations strictly to the root directory of this repository (`{{PROJECT_NAME}}`).
-   - Never inspect or mutate files outside this workspace boundary.
+- **Start Dev Server**: `{{DEV_COMMAND}}` *(Only when user explicitly requests running the server)*
+- **Production Build**: `{{BUILD_COMMAND}}`
+- **Run Unit Tests**: `{{TEST_COMMAND}}`
+- **Run Single Test**: `{{SINGLE_TEST_COMMAND}}`
+- **Lint / Code Format**: `{{LINT_COMMAND}}`
 
-2. **Architecture & Separation of Concerns**:
-   - Keep UI components/views decoupled from core business logic, services, and calculations.
-   - Place pure functions, mathematical formulas, and data repositories in dedicated service modules with accompanying unit tests.
+---
 
-3. **Zero-Trust Security & Data Protection**:
-   - Never write raw passwords, API tokens, or secrets to disk or source code.
-   - Validate and sanitize all inputs; prevent XSS vulnerabilities.
+## 📐 3. Documentation-First Development Policy
 
-4. **GitFlow & Commit Standards**:
-   - Follow standard GitFlow branch naming: `main` (production), `dev` (integration), `feature/*`, `bugfix/*`.
-   - Format commits using Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`).
+> **CRITICAL RULE**: **Development ALWAYS starts from documentation.**
 
-5. **Verification & Quality Gate Loop**:
-   - Always run `{{TEST_COMMAND}}` after completing changes to verify 100% test pass rate before marking tasks complete.
+When a user requests a new feature, bugfix, or architectural refactoring:
+1. **NEVER modify source code directly** as a first step.
+2. **Scan Existing Documentation**: Read `docs/PRD.md`, `docs/RFC.md`, `docs/FDD.md`, `docs/TRACKER.md`, and `docs/project-plan.md`.
+3. **Update / Create Documentation**:
+   - Use the `/design-docs-*` workflow skills to update `PRD.md`, `RFC.md`, and `FDD.md`.
+   - Update `docs/project-plan.md` and add/update phase plans in `docs/phases/phase-NN-*/phase-NN-*.md`.
+   - Ensure all step implementations (SIs) and requirements include **explicit line-anchored file links** (`file.ext#Lnn-Lmm`).
+4. **Obtain Alignment**: Confirm plan/documentation updates before starting code implementation.
+
+---
+
+## 📋 4. Feature Planning & Slicing Workflow
+
+1. **Architectural Specification (`/plan-build`)**:
+   - For complex features, generate technical specifications using templates (`api-contracts`, `data-model`, `error-catalog`, `frontend-runtime`, `traceability-matrix`, `ui-contracts`).
+2. **Phase Plan Slicing (`/plan-pipeline`)**:
+   - Break feature scope into atomic, verifiable Step Implementations (SIs).
+   - Document dependency maps, prerequisites, and explicit line anchors in `docs/phases/`.
+
+---
+
+## 💻 5. Development & Code Execution Workflow
+
+1. **Step Implementation (`/implement` & `/implement-phase`)**:
+   - Execute SIs sequentially as specified in the phase plan.
+   - Maintain clean **Separation of Concerns**: offload calculation, business logic, and data storage to pure service modules in `{{SERVICES_DIR}}`.
+2. **Zero-Trust Security**:
+   - Never write raw API keys or passwords in source code.
+   - Sanitize all user inputs to prevent XSS vulnerabilities (`v-html` prohibited).
+3. **Strict Internationalization (i18n)**:
+   - User-facing text must be externalized in locale dictionaries.
+
+---
+
+## 🧪 6. Testing, Validation & Delivery Gate
+
+1. **Unit Testing**:
+   - Every function added to service modules MUST have an accompanying unit test file.
+   - Execute `{{TEST_COMMAND}}` and ensure **100% of tests pass**.
+2. **Traceability Matrix (`TRACKER.md`)**:
+   - Update `docs/TRACKER.md` to map new/modified requirements directly to code lines (`file.ext#Lnn-Lmm`).
+3. **Validation Report (`/design-docs-validate`)**:
+   - Run validation skills to confirm document consistency, link integrity, and test coverage before marking delivery complete.
+
+---
+
+## 🌿 7. Git & Branching Conventions
+
+- **Branch Strategy (GitFlow)**:
+  - `main`: Stable production branch.
+  - `dev`: Integration branch for current development sprint.
+  - `feature/<feature-name>`: Feature development branches cut from `dev`.
+  - `bugfix/<bug-description>`: Fix branches cut from `dev`.
+- **Commit Format (Conventional Commits)**:
+  - `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`.
+- **Gitleaks Compliance**: Never commit secrets or high-entropy key strings.
+
+---
+
+## 🧰 8. Available Workflows & Skills Index
+
+### Reverse-Engineering & Documentation Workflow (`.claude/skills/` & `.agents/skills/`)
+- `design-docs-baseline`: Generates initial baseline context and codebase maps.
+- `design-docs-prd`: Authors/updates Product Requirements Document (`docs/PRD.md`).
+- `design-docs-rfc`: Technical proposal & architectural trade-offs (`docs/RFC.md`).
+- `design-docs-fdd`: Functional design spec with Mermaid diagrams (`docs/FDD.md`).
+- `design-docs-adr`: Architecture Decision Records (`docs/adrs/`).
+- `design-docs-tracker`: Line-anchored traceability matrix (`docs/TRACKER.md`).
+- `design-docs-validate`: Mechanical documentation validator.
+
+### Greenfield Planning & Execution Workflow
+- `plan-pipeline`: Master implementation plan slicing orchestrator.
+- `plan-build`: Tech spec and SI plan generator.
+- `implement` / `implement-phase`: Step-by-step SI code implementation engine.
+- `refactor-arch`: Architectural refactoring suite for legacy codebases.

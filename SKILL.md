@@ -1,6 +1,6 @@
 ---
 name: agentic-repo-setup
-description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs with line-anchored file links), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Generates identical master AGENTS.md, CLAUDE.md, and context.md files for universal AI Agent compatibility.
+description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs with line-anchored file links), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Generates AGENTS.md and CLAUDE.md referencing context.md as the authoritative single source of truth.
 triggers:
   - /agentic-repo-setup
   - setup agentic repo
@@ -8,11 +8,11 @@ triggers:
   - agentic setup
 ---
 
-# Agentic Repository Setup Skill (Identical Master Entrypoints Edition)
+# Agentic Repository Setup Skill (Single Source of Truth Edition)
 
 You are an expert AI software architect specializing in transforming any codebase into a fully autonomous, high-quality **AI Agentic Repository**.
 
-> **Identical Master Entrypoints Guarantee**: When this skill runs, it generates [`AGENTS.md`](file:///AGENTS.md), [`CLAUDE.md`](file:///CLAUDE.md), and [`context.md`](file:///context.md) with **identical contents**. This ensures that Claude Code CLI, Antigravity/AGY, Cursor, Windsurf, Codex, and all AI tools receive the exact same master reference instructions, guaranteeing universal compatibility.
+> **Single Source of Truth Guarantee**: [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md) are generated as lightweight, identical root entrypoints referencing [`context.md`](file:///context.md) as the single source of truth. [`context.md`](file:///context.md) defines environment setup, Git conventions, workflows, testing gates, and the mandatory **Documentation-First Development Policy** (development ALWAYS starts by creating/updating documentation).
 
 ---
 
@@ -33,7 +33,7 @@ You are an expert AI software architect specializing in transforming any codebas
    - Copies `templates/rules/` $\rightarrow$ `.claude/rules/` and `.agents/rules/`:
      - `source-code-is-read-only.md`, `traceability-required.md`, `no-cross-document-duplication.md`, `honor-rejected-scope.md`, `repo-file-links.md`, `restricao_escopo.md`, `gitflow_conventions.md`.
 3. **Execute Reverse-Engineering Pipeline**:
-   - **`design-docs-baseline`**: Generates identical [`AGENTS.md`](file:///AGENTS.md), [`CLAUDE.md`](file:///CLAUDE.md), [`context.md`](file:///context.md), and `.claude/references/codebase/`.
+   - **`design-docs-baseline`**: Generates [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md) (referencing [`context.md`](file:///context.md)), [`context.md`](file:///context.md), and `.claude/references/codebase/`.
    - **`design-docs-prd`**: Generates `docs/PRD.md` (Product Requirements Document).
    - **`design-docs-rfc`**: Generates `docs/RFC.md` (Request For Comments / Technical Proposal).
    - **`design-docs-fdd` & `design-docs-diagrams`**: Generates `docs/FDD.md` (Functional Design Document) with **embedded C4 & Mermaid diagrams**.
@@ -61,8 +61,9 @@ You are an expert AI software architect specializing in transforming any codebas
    - Master refactoring orchestrator executing Phase 1 (Project Analysis), Phase 2 (Architecture Audit & Severity Report), Phase 3 (MVC Refactoring & Boot Validation).
    - `catalogo_antipatterns.md`, `guidelines_arquitetura.md`, `playbook_refatoracao.md`, `projeto_analise.md`, `template_relatorio.md`.
 
-4. **Identical Root Entrypoint Generation**:
-   - Read [`templates/AGENTS.md.template`](file:///templates/AGENTS.md.template) $\rightarrow$ Write **IDENTICAL MASTER CONTENTS** to [`AGENTS.md`](file:///AGENTS.md), [`CLAUDE.md`](file:///CLAUDE.md), and [`context.md`](file:///context.md).
+4. **Root Entrypoints & Single Source of Truth Generation**:
+   - Read [`templates/AGENTS.md.template`](file:///templates/AGENTS.md.template) $\rightarrow$ Write to [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md).
+   - Read [`templates/context.md.template`](file:///templates/context.md.template) $\rightarrow$ Write authoritative [`context.md`](file:///context.md).
 
 ---
 

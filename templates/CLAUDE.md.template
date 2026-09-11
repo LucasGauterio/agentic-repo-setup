@@ -1,6 +1,10 @@
-# Master Agent Guide — {{PROJECT_NAME}} (AGENTS.md / CLAUDE.md / context.md)
+# AGENTS.md / CLAUDE.md — {{PROJECT_NAME}}
 
-This document provides instructions for AI Agents (Claude Code, Antigravity, Cursor, Codex, Windsurf) working in the **{{PROJECT_NAME}}** repository.
+This document serves as the root entrypoint for AI Agents (Claude Code, Antigravity, Cursor, Codex, Windsurf) working in **{{PROJECT_NAME}}**.
+
+> 📖 **Single Source of Truth Notice**:
+> To eliminate duplication across configuration files, authoritative repository context, workflows, environment setup, Git conventions, documentation-first policies, and validation procedures are maintained in [`context.md`](context.md).
+> All AI Agents MUST read [`context.md`](context.md) at the start of a session or when planning tasks.
 
 ---
 
@@ -14,53 +18,9 @@ This document provides instructions for AI Agents (Claude Code, Antigravity, Cur
 
 ---
 
-## 🛠 Project Architecture & Tech Stack
+## ⚡ Core Directives
 
-- **Framework / Runtime**: {{TECH_STACK}}
-- **Build Tool**: {{BUILD_TOOL}}
-- **Testing Framework**: {{TEST_FRAMEWORK}}
-- **Styling / UI**: {{STYLING_STACK}}
-- **State & Storage**: {{STORAGE_STACK}}
-- **Database / Backend**: {{BACKEND_STACK}}
-
----
-
-## 📂 Key Directory Structure
-
-```
-{{PROJECT_NAME}}/
-├── {{SRC_DIR}}/          # Application source code
-├── docs/                 # Greenfield phase plans, PRD, RFC, FDD, ADRs, TRACKER
-│   ├── project-plan.md   # Master Greenfield roadmap
-│   ├── architecture.md   # System architecture breakdown
-│   ├── phases/           # Phased implementation plans (phase-01 to phase-NN)
-│   └── adrs/             # Architecture Decision Records
-├── AGENTS.md             # Universal master guide (Antigravity/Cursor/Codex/Windsurf) — IDENTICAL TO CLAUDE.md & context.md
-├── CLAUDE.md             # Native Claude Code CLI guide — IDENTICAL TO AGENTS.md & context.md
-├── context.md            # Legacy / context guide — IDENTICAL TO AGENTS.md & CLAUDE.md
-├── .agents/              # AI agent rules & workflow skills (agent-invocation ready)
-└── .claude/              # Native Claude Code CLI skills, commands, rules, agents, and references
-```
-
----
-
-## ⚠️ Mandatory Agent Guidelines
-
-1. **Workspace Scope Restrictions (`restricao_escopo`)**:
-   - Limit all read, write, edit, and search operations strictly to the root directory of this repository (`{{PROJECT_NAME}}`).
-   - Never inspect or mutate files outside this workspace boundary.
-
-2. **Architecture & Separation of Concerns**:
-   - Keep UI components/views decoupled from core business logic, services, and calculations.
-   - Place pure functions, mathematical formulas, and data repositories in dedicated service modules with accompanying unit tests.
-
-3. **Zero-Trust Security & Data Protection**:
-   - Never write raw passwords, API tokens, or secrets to disk or source code.
-   - Validate and sanitize all inputs; prevent XSS vulnerabilities.
-
-4. **GitFlow & Commit Standards**:
-   - Follow standard GitFlow branch naming: `main` (production), `dev` (integration), `feature/*`, `bugfix/*`.
-   - Format commits using Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`).
-
-5. **Verification & Quality Gate Loop**:
-   - Always run `{{TEST_COMMAND}}` after completing changes to verify 100% test pass rate before marking tasks complete.
+1. **Consult `context.md`**: Refer to [`context.md`](context.md) for full project architecture, GitFlow conventions, testing rules, and skills index.
+2. **Documentation-First Policy**: ALL feature additions, bugfixes, or architectural changes MUST start by updating/scaffolding documentation in `docs/` via available workflows before modifying source code.
+3. **Workspace Boundary (`restricao_escopo`)**: Restrict all read, edit, and execution operations strictly to `{{PROJECT_NAME}}`.
+4. **Quality Gate**: Run `{{TEST_COMMAND}}` and verify 100% test pass rate before declaring any task complete.
