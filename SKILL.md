@@ -1,6 +1,6 @@
 ---
 name: agentic-repo-setup
-description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Configured specifically for AI Agent execution without disable-model-invocation restrictions.
+description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs with line-anchored file links), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Configured specifically for AI Agent execution without disable-model-invocation restrictions.
 triggers:
   - /agentic-repo-setup
   - setup agentic repo
@@ -8,7 +8,7 @@ triggers:
   - agentic setup
 ---
 
-# Agentic Repository Setup Skill (Full Greenfield & Refactoring Edition)
+# Agentic Repository Setup Skill (Full Deep Scan & Context Edition)
 
 You are an expert AI software architect specializing in transforming any codebase into a fully autonomous, high-quality **AI Agentic Repository**.
 
@@ -16,7 +16,7 @@ You are an expert AI software architect specializing in transforming any codebas
 > - **Documentation Engine**: Instantiates the full `.claude` system from [`mba-ia-desafio-design-docs-com-ia`](file:///G:/Projects/MBA/mba-ia-desafio-design-docs-com-ia/DESIGN_DOCS_PROCESS.md) (12 design-docs skills, 12 commands, 5 core documentation rules, reference guides).
 > - **Greenfield Planning & Implementation Pipeline**: Instantiates the complete development workflow from [`mba-ia-greenfield-project`](file:///G:/Projects/MBA/mba-ia-greenfield-project/CLAUDE.md) (`plan-pipeline`, `plan-build`, `plan-phase`, `implement`, `implement-phase`, `docs/project-plan.md`, `docs/phases/`, `nestjs-best-practices`, `next-best-practices`, `vercel-react-best-practices`, `typeorm`).
 > - **Refactoring Suite**: Instantiates the complete `refactor-arch` package from [`mba-ia-refactor-projects-skill`](file:///G:/Projects/MBA/mba-ia-refactor-projects-skill/DESAFIO_README.md) (`catalogo_antipatterns.md`, `guidelines_arquitetura.md`, `playbook_refatoracao.md`, `projeto_analise.md`, `template_relatorio.md`).
-> - **AI Agent Invocation Ready**: All skills are configured with `disable-model-invocation: true` removed so that AI Agents (Antigravity, Claude Code, Cursor, Codex) can invoke and execute them directly and autonomously.
+> - **Zero-Gap Context Guarantee**: All Phase documents, Project Plans, and Technical Specifications MUST populate target file lists with **explicit, line-anchored file links (`file.ext#Lnn-Lmm`)** to ensure AI Agents (Antigravity, Claude Code, Cursor, Codex) have complete, readily available context during execution.
 
 ---
 
@@ -27,17 +27,15 @@ You are an expert AI software architect specializing in transforming any codebas
 ### Pillar 1: Reverse-Engineered Documentation Engine (`.claude/` Pipeline)
 *Directly instantiates the `design-docs` workflow from `mba-ia-desafio-design-docs-com-ia`.*
 
-1. **Scaffold Methodological References & Rules**:
+1. **Deep Codebase Inspection (Read-Only Guarantee)**:
+   - Perform a comprehensive codebase scan across all directories (`src/`, `lib/`, `services/`, `components/`, `composables/`, `locales/`, `tests/`, `configs/`).
+   - Discover ALL subsystems, calculation engines, storage repositories, security layers, and UI components without missing domain features.
+2. **Scaffold Methodological References & Rules**:
    - Copies `templates/references/` $\rightarrow$ `.claude/references/` (`architecture/`, `documentation/`, `codebase/`, `INDEX.md`).
    - Copies `templates/guidelines/` $\rightarrow$ `.claude/guidelines/` (`ai-as-maestro.md`).
    - Copies `templates/requirements/` $\rightarrow$ `.claude/requirements/` (`deliverables.default.md`).
    - Copies `templates/rules/` $\rightarrow$ `.claude/rules/` and `.agents/rules/`:
      - `source-code-is-read-only.md`, `traceability-required.md`, `no-cross-document-duplication.md`, `honor-rejected-scope.md`, `repo-file-links.md`, `restricao_escopo.md`, `gitflow_conventions.md`.
-
-2. **Scaffold Documentation Commands & Skills**:
-   - Copies `templates/commands/` $\rightarrow$ `.claude/commands/` (all 12 `design-docs-*` commands).
-   - Copies `templates/skills/` $\rightarrow$ `.claude/skills/` and `.agents/skills/`.
-
 3. **Execute Reverse-Engineering Pipeline**:
    - **`design-docs-baseline`**: Generates `CLAUDE.md`, `context.md`, and `.claude/references/codebase/`.
    - **`design-docs-prd`**: Generates `docs/PRD.md` (Product Requirements Document).
@@ -50,9 +48,9 @@ You are an expert AI software architect specializing in transforming any codebas
 ---
 
 ### Pillar 2: Greenfield Planning, Implementation & Refactoring Pipeline
-1. **Scaffold Greenfield Project Plan & Phased Roadmap**:
-   - **`docs/project-plan.md`**: Master Greenfield project plan detailing executive summary, repository structure/subprojects, and Phased Implementation Roadmap.
-   - **`docs/phases/`**: Scaffold sequential phase plan documents (`docs/phases/phase-01-*/phase-01-*.md` to `docs/phases/phase-05-*/phase-05-*.md`) detailing `## Objective`, `## Dependency Map`, `## Step Implementations (SIs)`, and `## Deliverables`.
+1. **Scaffold Greenfield Project Plan & Line-Anchored Phase Roadmap**:
+   - **`docs/project-plan.md`**: Master Greenfield project plan detailing executive summary, repository structure/subprojects, and Phased Implementation Roadmap with explicit file links (`file.ext#Lnn-Lmm`).
+   - **`docs/phases/`**: Scaffold sequential phase plan documents (`docs/phases/phase-01-*/phase-01-*.md` to `docs/phases/phase-NN-*/phase-NN-*.md`) detailing `## Objective`, `## Dependency Map`, `## Step Implementations (SIs)` with **exact target file links (`file.ext#Lnn-Lmm`)**, and `## Deliverables`.
 
 2. **Scaffold Greenfield Planning & Execution Engine**:
    *Scaffolds the 23 development workflow skills from `mba-ia-greenfield-project` into `.agents/skills/` and `.claude/skills/`:*
