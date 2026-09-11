@@ -20,8 +20,8 @@ flowchart TD
    - `docs/adrs/ADR-001-*.md` (Architecture Decision Records)
    - `docs/TRACKER.md` (Line-level Traceability Matrix mapping requirements to code lines `file.ext#Lnn`)
 2. **🤖 Universal Agent Setup**:
-   - Lightweight entrypoint guides (`AGENTS.md` & `CLAUDE.md`) referencing `context.md` as the single source of truth
-   - Authoritative repository context, documentation-first policy, and workflows in `context.md`
+   - Lightweight entrypoint guides (`AGENTS.md` & `CLAUDE.md`) referencing `CONTEXT.md` as the single source of truth
+   - Authoritative repository context, documentation-first policy, and workflows in `CONTEXT.md`
    - Scoped workspace rules (`restricao_escopo.md`, `security_zero_trust.md`, `gitflow_conventions.md`, `architecture_conventions.md`)
    - Complete `.claude/` system (12 `design-docs-*` commands, 12 `design-docs-*` skills, 5 core documentation rules)
 3. **🧪 Test Coverage & Quality Gates**:
@@ -44,7 +44,7 @@ agentic-repo-setup/
 └── templates/                           # Embedded, zero-dependency templates
     ├── AGENTS.md.template               # AGENTS.md template
     ├── CLAUDE.md.template               # CLAUDE.md template
-    ├── context.md.template              # context.md template
+    ├── CONTEXT.md.template              # CONTEXT.md template
     ├── architecture.md.template         # docs/architecture.md template
     ├── docs/                            # PRD, RFC, FDD, ADR, TRACKER templates
     ├── rules/                           # Scope boundary, security, gitflow, doc rules

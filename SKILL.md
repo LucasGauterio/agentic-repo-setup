@@ -1,6 +1,6 @@
 ---
 name: agentic-repo-setup
-description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs with line-anchored file links), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Generates AGENTS.md and CLAUDE.md referencing context.md as the authoritative single source of truth.
+description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs with line-anchored file links), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Generates AGENTS.md and CLAUDE.md referencing CONTEXT.md as the authoritative single source of truth.
 triggers:
   - /agentic-repo-setup
   - setup agentic repo
@@ -12,7 +12,7 @@ triggers:
 
 You are an expert AI software architect specializing in transforming any codebase into a fully autonomous, high-quality **AI Agentic Repository**.
 
-> **Single Source of Truth Guarantee**: [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md) are generated as lightweight, identical root entrypoints referencing [`context.md`](file:///context.md) as the single source of truth. [`context.md`](file:///context.md) defines environment setup, Git conventions, workflows, testing gates, and the mandatory **Documentation-First Development Policy** (development ALWAYS starts by creating/updating documentation).
+> **Single Source of Truth Guarantee**: [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md) are generated as lightweight, identical root entrypoints referencing [`CONTEXT.md`](file:///CONTEXT.md) as the single source of truth. [`CONTEXT.md`](file:///CONTEXT.md) defines environment setup, Git conventions, workflows, testing gates, and the mandatory **Documentation-First Development Policy** (development ALWAYS starts by creating/updating documentation).
 
 ---
 
@@ -33,7 +33,7 @@ You are an expert AI software architect specializing in transforming any codebas
    - Copies `templates/rules/` $\rightarrow$ `.claude/rules/` and `.agents/rules/`:
      - `source-code-is-read-only.md`, `traceability-required.md`, `no-cross-document-duplication.md`, `honor-rejected-scope.md`, `repo-file-links.md`, `restricao_escopo.md`, `gitflow_conventions.md`.
 3. **Execute Reverse-Engineering Pipeline**:
-   - **`design-docs-baseline`**: Generates [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md) (referencing [`context.md`](file:///context.md)), [`context.md`](file:///context.md), and `.claude/references/codebase/`.
+   - **`design-docs-baseline`**: Generates [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md) (referencing [`CONTEXT.md`](file:///CONTEXT.md)), [`CONTEXT.md`](file:///CONTEXT.md), and `.claude/references/codebase/`.
    - **`design-docs-prd`**: Generates `docs/PRD.md` (Product Requirements Document).
    - **`design-docs-rfc`**: Generates `docs/RFC.md` (Request For Comments / Technical Proposal).
    - **`design-docs-fdd` & `design-docs-diagrams`**: Generates `docs/FDD.md` (Functional Design Document) with **embedded C4 & Mermaid diagrams**.
@@ -63,7 +63,7 @@ You are an expert AI software architect specializing in transforming any codebas
 
 4. **Root Entrypoints & Single Source of Truth Generation**:
    - Read [`templates/AGENTS.md.template`](file:///templates/AGENTS.md.template) $\rightarrow$ Write to [`AGENTS.md`](file:///AGENTS.md) and [`CLAUDE.md`](file:///CLAUDE.md).
-   - Read [`templates/context.md.template`](file:///templates/context.md.template) $\rightarrow$ Write authoritative [`context.md`](file:///context.md).
+   - Read [`templates/CONTEXT.md.template`](file:///templates/CONTEXT.md.template) $\rightarrow$ Write authoritative [`CONTEXT.md`](file:///CONTEXT.md).
 
 ---
 
@@ -96,7 +96,7 @@ When `/agentic-repo-setup` finishes running on a project, the target repository 
 {{PROJECT_ROOT}}/
 ├── AGENTS.md                         # Universal master guide (Antigravity/Cursor/Codex) — IDENTICAL TO CLAUDE.md
 ├── CLAUDE.md                         # Native Claude Code CLI guide — IDENTICAL TO AGENTS.md
-├── context.md                        # High-level context map pointing to AGENTS.md / CLAUDE.md
+├── CONTEXT.md                        # High-level context map pointing to AGENTS.md / CLAUDE.md
 ├── docs/                             # Greenfield & Reverse-engineered documentation package
 │   ├── project-plan.md               # Master Greenfield Project Plan & Roadmap
 │   ├── PRD.md                        # Product Requirements Document

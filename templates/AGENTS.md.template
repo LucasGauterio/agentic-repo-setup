@@ -3,8 +3,8 @@
 This document serves as the root entrypoint for AI Agents (Claude Code, Antigravity, Cursor, Codex, Windsurf) working in **{{PROJECT_NAME}}**.
 
 > 📖 **Single Source of Truth Notice**:
-> To eliminate duplication across configuration files, authoritative repository context, workflows, environment setup, Git conventions, documentation-first policies, and validation procedures are maintained in [`context.md`](context.md).
-> All AI Agents MUST read [`context.md`](context.md) at the start of a session or when planning tasks.
+> To eliminate duplication across configuration files, authoritative repository context, workflows, environment setup, Git conventions, documentation-first policies, and validation procedures are maintained in [`CONTEXT.md`](CONTEXT.md).
+> All AI Agents MUST read [`CONTEXT.md`](CONTEXT.md) at the start of a session or when planning tasks.
 
 ---
 
@@ -20,7 +20,7 @@ This document serves as the root entrypoint for AI Agents (Claude Code, Antigrav
 
 ## ⚡ Core Directives
 
-1. **Consult `context.md`**: Refer to [`context.md`](context.md) for full project architecture, GitFlow conventions, testing rules, and skills index.
+1. **Consult `CONTEXT.md`**: Refer to [`CONTEXT.md`](CONTEXT.md) for full project architecture, GitFlow conventions, testing rules, and skills index.
 2. **Documentation-First Policy**: ALL feature additions, bugfixes, or architectural changes MUST start by updating/scaffolding documentation in `docs/` via available workflows before modifying source code.
 3. **Workspace Boundary (`restricao_escopo`)**: Restrict all read, edit, and execution operations strictly to `{{PROJECT_NAME}}`.
 4. **Quality Gate**: Run `{{TEST_COMMAND}}` and verify 100% test pass rate before declaring any task complete.
