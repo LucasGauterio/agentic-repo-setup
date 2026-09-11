@@ -14,14 +14,13 @@ flowchart TD
 ```
 
 1. **📄 Reverse-Engineered Documentation**:
-   - `context.md` (Repository context map for AI agents)
    - `docs/PRD.md` (Product Requirements Document)
    - `docs/RFC.md` (Architecture Proposal & Trade-offs)
    - `docs/FDD.md` (Functional Design Spec + **Embedded Mermaid/C4 Diagrams**)
    - `docs/adrs/ADR-001-*.md` (Architecture Decision Records)
    - `docs/TRACKER.md` (Line-level Traceability Matrix mapping requirements to code lines `file.ext#Lnn`)
 2. **🤖 Universal Agent Setup**:
-   - Master root instruction entrypoints (`AGENTS.md` & `CLAUDE.md`)
+   - Identical master instruction entrypoints (`AGENTS.md`, `CLAUDE.md`, & `context.md`)
    - Scoped workspace rules (`restricao_escopo.md`, `security_zero_trust.md`, `gitflow_conventions.md`, `architecture_conventions.md`)
    - Complete `.claude/` system (12 `design-docs-*` commands, 12 `design-docs-*` skills, 5 core documentation rules)
 3. **🧪 Test Coverage & Quality Gates**:

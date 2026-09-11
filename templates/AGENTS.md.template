@@ -1,12 +1,12 @@
-# AGENTS.md
+# Master Agent Guide — {{PROJECT_NAME}} (AGENTS.md / CLAUDE.md / context.md)
 
-This document provides instructions for AI Agents (Antigravity, Claude Code, Cursor, Codex, Windsurf) working in the **{{PROJECT_NAME}}** repository.
+This document provides instructions for AI Agents (Claude Code, Antigravity, Cursor, Codex, Windsurf) working in the **{{PROJECT_NAME}}** repository.
 
 ---
 
 ## 🚀 Quick Reference & Commands
 
-- **Dev Server**: `{{DEV_COMMAND}}`
+- **Dev Server**: `{{DEV_COMMAND}}` (run ONLY when explicitly requested by user)
 - **Build**: `{{BUILD_COMMAND}}`
 - **Tests**: `{{TEST_COMMAND}}`
 - **Single Test**: `{{SINGLE_TEST_COMMAND}}`
@@ -30,14 +30,16 @@ This document provides instructions for AI Agents (Antigravity, Claude Code, Cur
 ```
 {{PROJECT_NAME}}/
 ├── {{SRC_DIR}}/          # Application source code
-├── docs/                 # Reverse-engineered documentation & architecture guides
-│   ├── architecture.md   # Architectural breakdown & system contracts
-│   └── diagrams/        # C4 / Mermaid sequence & component diagrams
-├── context.md            # Repository context map for AI agents
-├── .agents/              # AI agent rules & workflow skills
-│   ├── rules/            # Scoped guardrails (security, gitflow, conventions)
-│   └── skills/           # Custom workflow skills (add-feature, refactor-arch)
-└── .claude/              # Native Claude Code CLI configuration
+├── docs/                 # Greenfield phase plans, PRD, RFC, FDD, ADRs, TRACKER
+│   ├── project-plan.md   # Master Greenfield roadmap
+│   ├── architecture.md   # System architecture breakdown
+│   ├── phases/           # Phased implementation plans (phase-01 to phase-NN)
+│   └── adrs/             # Architecture Decision Records
+├── AGENTS.md             # Universal master guide (Antigravity/Cursor/Codex/Windsurf) — IDENTICAL TO CLAUDE.md & context.md
+├── CLAUDE.md             # Native Claude Code CLI guide — IDENTICAL TO AGENTS.md & context.md
+├── context.md            # Legacy / context guide — IDENTICAL TO AGENTS.md & CLAUDE.md
+├── .agents/              # AI agent rules & workflow skills (agent-invocation ready)
+└── .claude/              # Native Claude Code CLI skills, commands, rules, agents, and references
 ```
 
 ---
@@ -54,7 +56,7 @@ This document provides instructions for AI Agents (Antigravity, Claude Code, Cur
 
 3. **Zero-Trust Security & Data Protection**:
    - Never write raw passwords, API tokens, or secrets to disk or source code.
-   - Validate and sanitize all inputs; prevent XSS vulnerabilities (never use unsanitized `v-html` or `dangerouslySetInnerHTML`).
+   - Validate and sanitize all inputs; prevent XSS vulnerabilities.
 
 4. **GitFlow & Commit Standards**:
    - Follow standard GitFlow branch naming: `main` (production), `dev` (integration), `feature/*`, `bugfix/*`.

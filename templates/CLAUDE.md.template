@@ -1,17 +1,66 @@
-# CLAUDE.md
+# Master Agent Guide — {{PROJECT_NAME}} (AGENTS.md / CLAUDE.md / context.md)
 
-## Commands
-- **Dev server**: `{{DEV_COMMAND}}` (run ONLY when explicitly requested by user)
-- **Run tests**: `{{TEST_COMMAND}}`
-- **Single test**: `{{SINGLE_TEST_COMMAND}}`
+This document provides instructions for AI Agents (Claude Code, Antigravity, Cursor, Codex, Windsurf) working in the **{{PROJECT_NAME}}** repository.
+
+---
+
+## 🚀 Quick Reference & Commands
+
+- **Dev Server**: `{{DEV_COMMAND}}` (run ONLY when explicitly requested by user)
 - **Build**: `{{BUILD_COMMAND}}`
+- **Tests**: `{{TEST_COMMAND}}`
+- **Single Test**: `{{SINGLE_TEST_COMMAND}}`
+- **Lint / Format**: `{{LINT_COMMAND}}`
 
-## Architecture & Code Conventions
+---
 
-- **Core Patterns**: {{TECH_STACK}} conventions.
-- **Business Logic**: Keep UI components thin. Offload calculations and pure functions to `{{SERVICES_DIR}}`.
-- **GitFlow Branching**: `main` (prod), `dev` (integration), `feature/*` (features), `bugfix/*` (patches).
-- **Security**: Never hardcode secrets; sanitize user inputs; enforce zero-trust data protection.
+## 🛠 Project Architecture & Tech Stack
 
-## Verification Loop
-Always run `{{TEST_COMMAND}}` after modifying code to verify zero regressions before ending your turn.
+- **Framework / Runtime**: {{TECH_STACK}}
+- **Build Tool**: {{BUILD_TOOL}}
+- **Testing Framework**: {{TEST_FRAMEWORK}}
+- **Styling / UI**: {{STYLING_STACK}}
+- **State & Storage**: {{STORAGE_STACK}}
+- **Database / Backend**: {{BACKEND_STACK}}
+
+---
+
+## 📂 Key Directory Structure
+
+```
+{{PROJECT_NAME}}/
+├── {{SRC_DIR}}/          # Application source code
+├── docs/                 # Greenfield phase plans, PRD, RFC, FDD, ADRs, TRACKER
+│   ├── project-plan.md   # Master Greenfield roadmap
+│   ├── architecture.md   # System architecture breakdown
+│   ├── phases/           # Phased implementation plans (phase-01 to phase-NN)
+│   └── adrs/             # Architecture Decision Records
+├── AGENTS.md             # Universal master guide (Antigravity/Cursor/Codex/Windsurf) — IDENTICAL TO CLAUDE.md & context.md
+├── CLAUDE.md             # Native Claude Code CLI guide — IDENTICAL TO AGENTS.md & context.md
+├── context.md            # Legacy / context guide — IDENTICAL TO AGENTS.md & CLAUDE.md
+├── .agents/              # AI agent rules & workflow skills (agent-invocation ready)
+└── .claude/              # Native Claude Code CLI skills, commands, rules, agents, and references
+```
+
+---
+
+## ⚠️ Mandatory Agent Guidelines
+
+1. **Workspace Scope Restrictions (`restricao_escopo`)**:
+   - Limit all read, write, edit, and search operations strictly to the root directory of this repository (`{{PROJECT_NAME}}`).
+   - Never inspect or mutate files outside this workspace boundary.
+
+2. **Architecture & Separation of Concerns**:
+   - Keep UI components/views decoupled from core business logic, services, and calculations.
+   - Place pure functions, mathematical formulas, and data repositories in dedicated service modules with accompanying unit tests.
+
+3. **Zero-Trust Security & Data Protection**:
+   - Never write raw passwords, API tokens, or secrets to disk or source code.
+   - Validate and sanitize all inputs; prevent XSS vulnerabilities.
+
+4. **GitFlow & Commit Standards**:
+   - Follow standard GitFlow branch naming: `main` (production), `dev` (integration), `feature/*`, `bugfix/*`.
+   - Format commits using Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`).
+
+5. **Verification & Quality Gate Loop**:
+   - Always run `{{TEST_COMMAND}}` after completing changes to verify 100% test pass rate before marking tasks complete.
