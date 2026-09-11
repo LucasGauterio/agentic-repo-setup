@@ -48,7 +48,7 @@ You are an expert AI software architect specializing in transforming any codebas
 ### Pillar 2: Greenfield Planning, Implementation & Unified New Feature Pipeline
 1. **Scaffold Greenfield Project Plan & Line-Anchored Phase Roadmap**:
    - **`docs/project-plan.md`**: Master Greenfield project plan detailing executive summary, repository structure/subprojects, and Phased Implementation Roadmap with explicit file links (`file.ext#Lnn-Lmm`).
-   - **`docs/phases/`**: Scaffold sequential phase plan documents (`docs/phases/phase-01-*/phase-01-*.md` to `docs/phases/phase-NN-*/phase-NN-*.md`) detailing `## Objective`, `## Dependency Map`, `## Step Implementations (SIs)` with **exact target file links (`file.ext#Lnn-Lmm`)**, and `## Deliverables`.
+   - **`docs/phases/`**: Scaffold sequential phase plan folders (`docs/phases/phase-NN-{slug}/`), each mandatorily containing all four artifacts: `CONTEXT.md`, `validation.md`, `library-refs.md` (when libs decided), and `phase-NN-{slug}.md` (`docs/phases/phase-01-*/phase-01-*.md` to `docs/phases/phase-NN-*/phase-NN-*.md`) detailing `## Objective`, `## Dependency Map`, `## Step Implementations (SIs)` with **exact target file links (`file.ext#Lnn-Lmm`)**, and `## Deliverables`.
 
 2. **Unified New Feature / Phase Slicing Execution Engine**:
    *Enforces the 9-step mandatory workflow whenever a new feature or implementation phase is requested:*
