@@ -52,10 +52,10 @@ You are an expert AI software architect specializing in transforming any codebas
 
 2. **Unified New Feature / Phase Slicing Execution Engine**:
    *Enforces the 9-step mandatory workflow whenever a new feature or implementation phase is requested:*
-   1. **System Design Docs Update**: Update `docs/PRD.md` (`/design-docs-prd`), `docs/RFC.md` (`/design-docs-rfc`), `docs/FDD.md` (`/design-docs-fdd`), and `docs/adrs/` (`/design-docs-adr`).
-   2. **Master Roadmap Amendment**: Amend `docs/project-plan.md` to add `### Phase NN: <name>` with capability bullets and target file links (`file.ext#Lnn-Lmm`).
-   3. **Technical Decision Discovery [MANDATORY PRECONDITION]**: Run `/research phase NN` FIRST $\rightarrow$ `docs/decisions/technical-decisions-{slug}.md`. (Must run before `/plan-context`).
-   4. **Phase Context Consolidation**: Run `/plan-context NN` AFTER `/research` completes $\rightarrow$ `docs/phases/phase-NN-{slug}/CONTEXT.md`.
+   1. **Master Roadmap Amendment**: Amend `docs/project-plan.md` to add `### Phase NN: <name>` with capability bullets and target file links (`file.ext#Lnn-Lmm`).
+   2. **Technical Decision Discovery**: Run `/research phase NN` $\rightarrow$ `docs/decisions/technical-decisions-{slug}.md`.
+   3. **AUTOMATIC SYSTEM DESIGN-DOCS ACTIVATION [MANDATORY & AUTOMATIC]**: Immediately after research completes, AUTOMATICALLY activate system design-docs skills: `/design-docs-prd` (`docs/PRD.md`), `/design-docs-rfc` (`docs/RFC.md`), `/design-docs-fdd` (`docs/FDD.md`), and `/design-docs-adr` (`docs/adrs/`). DO NOT ask the user if they want to update documentation — design-docs activation is mandatory and automatic before implementation.
+   4. **Phase Context Consolidation**: Run `/plan-context NN` AFTER design-docs update completes $\rightarrow$ `docs/phases/phase-NN-{slug}/CONTEXT.md`.
    5. **Architectural Validation**: Run `/plan-validate NN` $\rightarrow$ `validation.md` (clean|dirty).
    6. **Conflict Resolution**: Run `/plan-resolve NN` to resolve open issues interactively until clean.
    7. **SI Build & Test Specs**: Run `/plan-build NN` $\rightarrow$ `phase-NN-{slug}.md` and optional `/plan-test-specs NN`.
