@@ -31,6 +31,7 @@ flowchart TD
    - GitFlow branching strategy (`main`, `dev`, `feature/*`, `bugfix/*`)
    - Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`)
    - Pull Request templates (`.github/PULL_REQUEST_TEMPLATE.md`)
+   - Automatic post-setup Git commit of scaffolded structure (`feat(agentic): ...`)
 
 ---
 

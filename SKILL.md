@@ -90,6 +90,8 @@ You are an expert AI software architect specializing in transforming any codebas
    - Generate `.github/PULL_REQUEST_TEMPLATE.md` if missing.
 3. **Release Automation**:
    - Document CHANGELOG generation and semantic versioning rules.
+4. **Automatic Post-Setup Git Commit**:
+   - At the completion of `/agentic-repo-setup`, automatically stage all generated, scaffolded, and updated files (`git add -A`) and commit them using Conventional Commits (`feat(agentic): scaffold 4-pillar agentic repository structure and context`).
 
 ---
 
