@@ -1,0 +1,29 @@
+# Product Requirements Document (PRD): {{PROJECT_NAME}}
+
+## 1. Executive Summary & Objective
+{{PROJECT_SUMMARY}}
+
+## 2. Target Audience & User Personas
+- **Primary Persona**: {{PRIMARY_PERSONA}}
+- **Secondary Persona**: {{SECONDARY_PERSONA}}
+
+## 3. Product Scope
+### 3.1 In-Scope Features
+{{IN_SCOPE_FEATURES}}
+
+### 3.2 Out-of-Scope / Deferred Items
+{{OUT_OF_SCOPE_ITEMS}}
+
+## 4. Functional Requirements (FR)
+| ID | Category | Requirement Description | Priority |
+|---|---|---|---|
+| **FR-001** | Core | {{FR_001_DESC}} | High |
+| **FR-002** | Data | {{FR_002_DESC}} | Medium |
+
+## 5. Non-Functional Requirements (NFR)
+- **Performance**: {{NFR_PERFORMANCE}}
+- **Security**: Zero-Trust encryption, input sanitization, secret protection.
+- **Reliability & Availability**: Client-side offline capability & data persistence.
+
+## 6. Traceability Reference
+See [`docs/TRACKER.md`](TRACKER.md) for direct code and line-level mapping of all functional requirements.

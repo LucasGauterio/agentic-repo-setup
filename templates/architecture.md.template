@@ -1,0 +1,42 @@
+# Architecture Specification: {{PROJECT_NAME}}
+
+## Executive Summary
+This document provides a reverse-engineered architectural specification of {{PROJECT_NAME}}, detailing system layers, component interactions, data flow, and contract boundaries.
+
+---
+
+## 1. System Context & Layer Breakdown
+
+| Layer | Technology | Primary Responsibilities |
+|---|---|---|
+| **Presentation / UI** | {{UI_TECH}} | Rendering views, user interactions, local reactive state |
+| **Business / Service** | {{SERVICE_TECH}} | Domain logic, financial/mathematical calculations, workflows |
+| **Data / Persistence** | {{DATA_TECH}} | LocalStorage / IndexedDB / ORM / Database models |
+| **External Integration** | {{INTEGRATION_TECH}} | Third-party REST APIs, messaging, auth providers |
+
+---
+
+## 2. Reverse-Engineered Data Flow
+
+```mermaid
+graph TD
+    UI[UI Layer / Components] -->|Invokes Services| Service[Business Logic / Services]
+    Service -->|Validates & Processes| Domain[Domain Logic]
+    Domain -->|Persists Data| Storage[Database / Storage Layer]
+    Storage -->|Encrypted Ciphertext| Storage
+```
+
+---
+
+## 3. Security & Zero-Trust Policies
+- **Data Protection**: All client-side storage must be encrypted or sanitized.
+- **Access Control**: State transitions must be validated before persistence.
+- **XSS Mitigation**: Input strings must be sanitized prior to rendering.
+
+---
+
+## 4. GitFlow & Branching Model
+- `main` $\rightarrow$ Production release state.
+- `dev` $\rightarrow$ Active integration state.
+- `feature/{{feature-name}}` $\rightarrow$ Isolated feature development.
+- `bugfix/{{bug-name}}` $\rightarrow$ Targeted patch fixes.

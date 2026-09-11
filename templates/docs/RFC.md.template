@@ -1,0 +1,26 @@
+# Request For Comments (RFC): {{PROJECT_NAME}} Architecture Proposal
+
+## 1. Context & Problem Statement
+{{PROBLEM_STATEMENT}}
+
+## 2. Proposed Architecture & System Design
+{{PROPOSED_ARCHITECTURE_SUMMARY}}
+
+### Key Design Goals:
+1. **Decoupled Business Logic**: Separation of UI views from domain calculations.
+2. **Zero-Trust Client Encryption**: End-to-end data encryption prior to storage persistence.
+3. **High Testability**: Pure function services covered by Vitest/Jest unit tests.
+
+## 3. Alternative Solutions Considered
+| Option | Advantages | Disadvantages | Decision |
+|---|---|---|---|
+| **Option A (Chosen)** | {{OPTION_A_ADV}} | {{OPTION_A_DISADV}} | **Adopted** |
+| **Option B** | {{OPTION_B_ADV}} | {{OPTION_B_DISADV}} | Rejected |
+
+## 4. Integration & Data Migration Strategy
+- **Backward Compatibility**: {{MIGRATION_STRATEGY}}
+- **Data Persistence**: Automatic migration of unencrypted legacy state to ciphertext.
+
+## 5. Security & Privacy Impact
+- **Crypto Key Derivation**: PBKDF2 from user password.
+- **Data Protection**: AES-GCM cipher before writing to IndexedDB/LocalStorage.

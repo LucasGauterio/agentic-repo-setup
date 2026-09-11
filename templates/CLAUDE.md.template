@@ -1,0 +1,17 @@
+# CLAUDE.md
+
+## Commands
+- **Dev server**: `{{DEV_COMMAND}}` (run ONLY when explicitly requested by user)
+- **Run tests**: `{{TEST_COMMAND}}`
+- **Single test**: `{{SINGLE_TEST_COMMAND}}`
+- **Build**: `{{BUILD_COMMAND}}`
+
+## Architecture & Code Conventions
+
+- **Core Patterns**: {{TECH_STACK}} conventions.
+- **Business Logic**: Keep UI components thin. Offload calculations and pure functions to `{{SERVICES_DIR}}`.
+- **GitFlow Branching**: `main` (prod), `dev` (integration), `feature/*` (features), `bugfix/*` (patches).
+- **Security**: Never hardcode secrets; sanitize user inputs; enforce zero-trust data protection.
+
+## Verification Loop
+Always run `{{TEST_COMMAND}}` after modifying code to verify zero regressions before ending your turn.

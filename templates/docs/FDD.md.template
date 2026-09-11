@@ -1,0 +1,68 @@
+# Functional Design Document (FDD): {{PROJECT_NAME}}
+
+## 1. Module Specifications & Component Contracts
+
+### 1.1 UI Presentation Layer
+- **Components**: {{UI_COMPONENTS_LIST}}
+- **Responsibilities**: Reactive view rendering, user event handlers, i18n label binding.
+
+### 1.2 Business Logic & Calculation Layer
+- **Services**: {{SERVICES_LIST}}
+- **Responsibilities**: Pure mathematical calculations, compound interest formulas, data transformations.
+
+### 1.3 Storage & Encryption Layer
+- **Repositories**: {{STORAGE_REPOSITORIES}}
+- **Responsibilities**: Web Crypto API PBKDF2/AES-GCM encryption, IndexedDB/LocalStorage reads and writes.
+
+---
+
+## 2. API & Function Contracts
+
+```typescript
+// Example Public Function Contract
+interface CalculationInput {
+  principal: number;
+  monthlyContribution: number;
+  annualYieldRate: number;
+  years: number;
+}
+
+interface ProjectionResult {
+  finalBalance: number;
+  totalContributions: number;
+  totalInterestEarned: number;
+}
+```
+
+---
+
+## 3. Embedded System Diagrams
+
+### 3.1 Container & Flow Diagram (Mermaid)
+
+```mermaid
+graph TD
+    User([User]) -->|Interacts| UI[Vue / React UI Components]
+    UI -->|Calls| Service[Calculation & Business Services]
+    Service -->|Encrypts via WebCrypto| Crypto[AES-GCM / PBKDF2 Vault]
+    Crypto -->|Persists Ciphertext| DB[(IndexedDB / LocalStorage)]
+```
+
+### 3.2 Sequence Diagram (Mermaid)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant UI as Component View
+    participant Service as Service Engine
+    participant Crypto as Web Crypto API
+    participant Store as IndexedDB
+
+    User->>UI: Enter Investment Inputs & Save
+    UI->>Service: calculateProjections(inputs)
+    Service-->>UI: Return Projection Data
+    UI->>Crypto: encryptPayload(masterKey, payload)
+    Crypto-->>UI: Ciphertext
+    UI->>Store: saveEncrypted(ciphertext)
+```

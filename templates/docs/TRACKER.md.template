@@ -1,0 +1,23 @@
+# Traceability Matrix (TRACKER.md): {{PROJECT_NAME}}
+
+This document maps every requirement, architecture proposal, functional design spec, and ADR directly to its authoritative implementation file and line numbers in the codebase.
+
+---
+
+## 1. Requirement & Architecture Traceability Map
+
+| Req ID | Document | Section | Target Source File | Line Range |
+|---|---|---|---|---|
+| **FR-001** | PRD.md | Section 4 | [`src/components/PortfolioTracker.vue`](../src/components/PortfolioTracker.vue#L1-L150) | `L1-L150` |
+| **FR-002** | PRD.md | Section 4 | [`src/services/financialCalculations.js`](../src/services/financialCalculations.js#L20-L85) | `L20-L85` |
+| **NFR-SEC**| RFC.md | Section 5 | [`src/composables/useAuth.js`](../src/composables/useAuth.js#L1-L60) | `L1-L60` |
+| **ADR-001**| ADR-001.md | Decision | [`src/composables/useStorage.js`](../src/composables/useStorage.js#L10-L100) | `L10-L100` |
+
+---
+
+## 2. Test Verification Mapping
+
+| Req ID | Target Function | Test Suite File | Status |
+|---|---|---|---|
+| **FR-001** | `calculateProjections()` | [`src/services/financialCalculations.test.js`](../src/services/financialCalculations.test.js#L1-L40) | **PASSING** |
+| **FR-002** | `generateInstallments()` | [`src/services/loanCalculations.test.js`](../src/services/loanCalculations.test.js#L1-L50) | **PASSING** |

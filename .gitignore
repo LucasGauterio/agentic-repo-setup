@@ -1,0 +1,10 @@
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# Node / Scratch / Logs
+*.log
+scratch/
+node_modules/
+dist/
+build/

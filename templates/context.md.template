@@ -1,0 +1,23 @@
+# {{PROJECT_NAME}} Context Map
+
+**Project Overview:**
+{{PROJECT_DESCRIPTION}}
+
+**Tech Stack:**
+- **Framework/Runtime:** {{TECH_STACK}}
+- **Build Tool:** {{BUILD_TOOL}}
+- **Testing:** {{TEST_FRAMEWORK}}
+- **Styling/UI:** {{STYLING_STACK}}
+- **Database/Storage:** {{STORAGE_STACK}}
+
+**Core Directory Structure:**
+{{DIRECTORY_STRUCTURE_TREE}}
+
+**Key Feature Modules:**
+{{FEATURE_MODULES_LIST}}
+
+**Development & Architectural Guidelines:**
+1. **Separation of Concerns**: Offload heavy business logic to pure service modules in `{{SERVICES_DIR}}`.
+2. **Testing Coverage**: Every service function must be covered by unit tests.
+3. **Security**: Enforce zero-trust input sanitization and secure data persistence.
+4. **GitFlow Workflow**: All new features must be developed on `feature/*` branches cut from `dev`.

@@ -1,0 +1,27 @@
+# ADR-{{ADR_NUM}}: {{ADR_TITLE}}
+
+- **Status**: {{ADR_STATUS}} <!-- Proposed | Accepted | Deprecated | Superseded -->
+- **Date**: {{ADR_DATE}}
+- **Deciders**: {{ADR_DECIDERS}}
+
+## Context & Problem Statement
+{{ADR_CONTEXT}}
+
+## Decision Drivers
+1. Need for client-side zero-trust security.
+2. Maintainability and testability of core business logic.
+3. Universal agent compatibility across Claude Code, Antigravity, and Cursor.
+
+## Considered Options
+* **Option 1**: {{OPTION_1}}
+* **Option 2**: {{OPTION_2}}
+
+## Decision Outcome
+Chosen Option: **{{CHOSEN_OPTION}}**, because {{DECISION_RATIONALE}}.
+
+### Positive Consequences:
+- {{POSITIVE_CONSEQUENCE_1}}
+- {{POSITIVE_CONSEQUENCE_2}}
+
+### Negative Consequences / Trade-offs:
+- {{NEGATIVE_CONSEQUENCE_1}}
