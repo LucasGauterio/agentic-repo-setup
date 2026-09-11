@@ -1,0 +1,40 @@
+# {{PROJECT_NAME}} — Greenfield Project Plan
+
+## Executive Summary & Overview
+
+{{PROJECT_SUMMARY}}
+
+The application is structured into modular layers designed for high maintainability, zero-trust security, and thorough test coverage.
+
+---
+
+## Repository Structure & Subprojects
+
+- `{{SRC_DIR}}/` — Core application source code (UI views, components, layout).
+- `{{SERVICES_DIR}}/` — Pure domain logic and business service modules.
+- `{{STORAGE_DIR}}/` — Reactive state composables and data repository persistence layer.
+- `docs/` — System documentation, PRD, RFC, FDD, ADRs, TRACKER, and Greenfield phase plans.
+
+---
+
+## Phased Implementation Roadmap
+
+### Phase 1: Core Setup & State Infrastructure (`docs/phases/phase-01-core-setup/`)
+- Establish project toolchain, test runner configuration, and styling tokens.
+- Implement base reactive state management and configuration modules.
+
+### Phase 2: Data Models & Persistence Layer (`docs/phases/phase-02-data-and-persistence/`)
+- Implement database schemas, ORM models, or encrypted local storage repositories.
+- Validate data persistence and security guardrails.
+
+### Phase 3: Domain Logic & Services Engine (`docs/phases/phase-03-domain-logic-services/`)
+- Implement pure domain service calculation modules and business workflows.
+- Scaffold unit tests to ensure 100% calculation accuracy.
+
+### Phase 4: Component Views & User Flows (`docs/phases/phase-04-components-and-ui/`)
+- Build reactive user interface components, views, and interactive forms.
+- Connect UI elements to business services and storage composables.
+
+### Phase 5: Localization & Release Automation (`docs/phases/phase-05-i18n-and-release/`)
+- Implement reactive i18n localization dictionaries (`en-US`, `pt-BR`).
+- Configure export/import functionality and release automation guidelines.

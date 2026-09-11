@@ -1,0 +1,23 @@
+# Phase {{PHASE_NUM}}: {{PHASE_TITLE}}
+
+## Objective
+{{PHASE_OBJECTIVE}}
+
+## Dependency Map
+- Prerequisite: {{PREREQUISITE_PHASES}}
+
+## Step Implementations (SIs)
+
+### SI-01: {{SI_01_TITLE}}
+- {{SI_01_DESCRIPTION}}
+- Target files: `{{SI_01_FILES}}`
+- Tests: `{{SI_01_TEST_COMMAND}}`
+
+### SI-02: {{SI_02_TITLE}}
+- {{SI_02_DESCRIPTION}}
+- Target files: `{{SI_02_FILES}}`
+- Tests: `{{SI_02_TEST_COMMAND}}`
+
+## Deliverables
+- {{PHASE_DELIVERABLE_1}}
+- {{PHASE_DELIVERABLE_2}}

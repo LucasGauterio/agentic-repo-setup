@@ -1,6 +1,6 @@
 ---
 name: agentic-repo-setup
-description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Configured specifically for AI Agent execution without disable-model-invocation restrictions.
+description: Complete 4-pillar agentic bootstrapper for any repository. Scaffolds complete .claude documentation engine (12 design-docs skills, 12 commands, 5 core rules), Greenfield planning & implementation pipeline (plan-pipeline, plan-build, implement, implement-phase, project-plan.md, phase docs), refactoring suite (refactor-arch), test coverage frameworks, and GitFlow workflows. Configured specifically for AI Agent execution without disable-model-invocation restrictions.
 triggers:
   - /agentic-repo-setup
   - setup agentic repo
@@ -14,7 +14,7 @@ You are an expert AI software architect specializing in transforming any codebas
 
 > **Direct MBA Reference Standards**:
 > - **Documentation Engine**: Instantiates the full `.claude` system from [`mba-ia-desafio-design-docs-com-ia`](file:///G:/Projects/MBA/mba-ia-desafio-design-docs-com-ia/DESIGN_DOCS_PROCESS.md) (12 design-docs skills, 12 commands, 5 core documentation rules, reference guides).
-> - **Greenfield Planning & Implementation Pipeline**: Instantiates the complete development workflow from [`mba-ia-greenfield-project`](file:///G:/Projects/MBA/mba-ia-greenfield-project/CLAUDE.md) (`plan-pipeline`, `plan-build`, `plan-phase`, `implement`, `implement-phase`, `nestjs-best-practices`, `next-best-practices`, `vercel-react-best-practices`, `typeorm`).
+> - **Greenfield Planning & Implementation Pipeline**: Instantiates the complete development workflow from [`mba-ia-greenfield-project`](file:///G:/Projects/MBA/mba-ia-greenfield-project/CLAUDE.md) (`plan-pipeline`, `plan-build`, `plan-phase`, `implement`, `implement-phase`, `docs/project-plan.md`, `docs/phases/`, `nestjs-best-practices`, `next-best-practices`, `vercel-react-best-practices`, `typeorm`).
 > - **Refactoring Suite**: Instantiates the complete `refactor-arch` package from [`mba-ia-refactor-projects-skill`](file:///G:/Projects/MBA/mba-ia-refactor-projects-skill/DESAFIO_README.md) (`catalogo_antipatterns.md`, `guidelines_arquitetura.md`, `playbook_refatoracao.md`, `projeto_analise.md`, `template_relatorio.md`).
 > - **AI Agent Invocation Ready**: All skills are configured with `disable-model-invocation: true` removed so that AI Agents (Antigravity, Claude Code, Cursor, Codex) can invoke and execute them directly and autonomously.
 
@@ -50,20 +50,24 @@ You are an expert AI software architect specializing in transforming any codebas
 ---
 
 ### Pillar 2: Greenfield Planning, Implementation & Refactoring Pipeline
-1. **Scaffold Greenfield Planning & Execution Engine**:
+1. **Scaffold Greenfield Project Plan & Phased Roadmap**:
+   - **`docs/project-plan.md`**: Master Greenfield project plan detailing executive summary, repository structure/subprojects, and Phased Implementation Roadmap.
+   - **`docs/phases/`**: Scaffold sequential phase plan documents (`docs/phases/phase-01-*/phase-01-*.md` to `docs/phases/phase-05-*/phase-05-*.md`) detailing `## Objective`, `## Dependency Map`, `## Step Implementations (SIs)`, and `## Deliverables`.
+
+2. **Scaffold Greenfield Planning & Execution Engine**:
    *Scaffolds the 23 development workflow skills from `mba-ia-greenfield-project` into `.agents/skills/` and `.claude/skills/`:*
    - **`plan-pipeline`**: Slicing implementation plan orchestrator.
    - **`plan-build`**: Architectural tech spec & SI plan builder (with templates for `api-contracts`, `auth-matrix`, `data-model`, `error-catalog`, `events-messages`, `frontend-runtime`, `traceability-matrix`, `ui-contracts`).
    - **`plan-phase`**, **`plan-context`**, **`plan-resolve`**, **`plan-rule-author`**, **`plan-test-specs`**, **`plan-validate`**, **`screen-inventory`**, **`decide`**, **`research`**.
    - **`implement` & `implement-phase`**: Step-by-step SI execution engine for turning technical specifications into tested working code without pausing model invocation.
-   - **Framework Best Practices**: `nestjs-best-practices` (40+ NestJS rules), `next-best-practices` (20+ Next.js rules), `vercel-react-best-practices` (70+ React rendering rules), `typeorm` (15+ TypeORM rules), `playwright-cli`.
+   - **Framework Best Practices**: `nestjs-best-practices`, `next-best-practices`, `vercel-react-best-practices`, `typeorm`, `playwright-cli`.
    - **Testing Guides**: `generate-test-guide`, `testing-guide-nestjs-project`, `testing-guide-next-frontend`.
 
-2. **Scaffold Architectural Refactoring Suite (`refactor-arch`)**:
+3. **Scaffold Architectural Refactoring Suite (`refactor-arch`)**:
    - Master refactoring orchestrator executing Phase 1 (Project Analysis), Phase 2 (Architecture Audit & Severity Report), Phase 3 (MVC Refactoring & Boot Validation).
    - `catalogo_antipatterns.md`, `guidelines_arquitetura.md`, `playbook_refatoracao.md`, `projeto_analise.md`, `template_relatorio.md`.
 
-3. **Root Entrypoint Generation**:
+4. **Root Entrypoint Generation**:
    - Read [`templates/AGENTS.md.template`](file:///templates/AGENTS.md.template) $\rightarrow$ [`AGENTS.md`](file:///AGENTS.md).
    - Read [`templates/CLAUDE.md.template`](file:///templates/CLAUDE.md.template) $\rightarrow$ [`CLAUDE.md`](file:///CLAUDE.md).
 
@@ -99,11 +103,18 @@ When `/agentic-repo-setup` finishes running on a project, the target repository 
 ├── AGENTS.md                         # Universal master guide (Antigravity/Cursor/Codex)
 ├── CLAUDE.md                         # Native Claude Code CLI guide
 ├── context.md                        # High-level context map
-├── docs/                             # Reverse-engineered documentation package
+├── docs/                             # Greenfield & Reverse-engineered documentation package
+│   ├── project-plan.md               # Master Greenfield Project Plan & Roadmap
 │   ├── PRD.md                        # Product Requirements Document
 │   ├── RFC.md                        # Architecture Proposal & Trade-offs
 │   ├── FDD.md                        # Functional Design Spec + Embedded Mermaid Diagrams
 │   ├── TRACKER.md                    # Line-level Traceability Matrix (file.ext#Lnn)
+│   ├── phases/                       # Greenfield Phased Implementation Plans
+│   │   ├── phase-01-core-setup/
+│   │   ├── phase-02-data-and-persistence/
+│   │   ├── phase-03-domain-logic-services/
+│   │   ├── phase-04-components-and-ui/
+│   │   └── phase-05-i18n-and-release/
 │   └── adrs/                         # Architecture Decision Records (ADR-001..ADR-NNN)
 ├── .claude/
 │   ├── agents/                       # Greenfield plan & decision reader agents
