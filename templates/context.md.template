@@ -89,7 +89,7 @@ When a user requests a new feature or a new implementation phase (e.g. Phase 07)
 ## 💻 5. Development & Code Execution Workflow
 
 1. **Step Implementation (`/implement` & `/implement-phase`)**:
-   - Execute SIs sequentially as specified in the phase plan.
+   - **Autonomous Continuous Mode Default**: Execute all SIs and phase transitions sequentially and automatically without pausing for user confirmation or asking "should I continue?". Interactive step-by-step review is OPT-IN ONLY when explicitly requested by the user ("modo interativo"). Prompt the user ONLY when unresolvable blockers or explicit decisions occur.
    - Maintain clean **Separation of Concerns**: offload calculation, business logic, and data storage to pure service modules in `{{SERVICES_DIR}}`.
 2. **Zero-Trust Security**:
    - Never write raw API keys or passwords in source code.
